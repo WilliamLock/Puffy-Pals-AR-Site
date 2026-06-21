@@ -5,40 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Puffy Pals AR</title>
   <style>
-    :root { color-scheme: light; --blue:#16bfe3; --pink:#ff5d93; --ink:#20242a; --muted:#687078; --cream:#fffaf2; }
+    :root { color-scheme: light; --blue:#16bfe3; --pink:#ff5d93; --ink:#20242a; --muted:#687078; --cream:#fffaf2; --line:rgba(32,36,42,.12); }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(180deg, #f5fdff, var(--cream)); color: var(--ink); line-height: 1.55; }
-    main { max-width: 880px; margin: 0 auto; padding: 64px 24px; }
-    .hero { padding: 48px 0 36px; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at 18% 10%, rgba(255,213,91,.35), transparent 26%), radial-gradient(circle at 86% 12%, rgba(22,191,227,.24), transparent 30%), linear-gradient(180deg, #f5fdff, var(--cream)); color: var(--ink); line-height: 1.55; }
+    main { max-width: 960px; margin: 0 auto; padding: 46px 24px 64px; }
+    .hero { display: grid; grid-template-columns: 132px 1fr; gap: 24px; align-items: center; padding: 36px 0 34px; }
+    .icon { width: 132px; height: 132px; border-radius: 30px; box-shadow: 0 18px 42px rgba(32,36,42,.18); }
     h1 { font-size: clamp(2.7rem, 9vw, 6rem); line-height: .92; margin: 0 0 18px; letter-spacing: 0; }
     .tagline { font-size: clamp(1.2rem, 3vw, 1.65rem); color: var(--muted); max-width: 720px; margin: 0 0 30px; font-weight: 700; }
     .pill { display: inline-block; background: var(--blue); color: white; padding: 10px 16px; border-radius: 999px; font-weight: 800; margin: 0 10px 12px 0; }
-    section { border-top: 1px solid rgba(32,36,42,.12); padding: 32px 0; }
+    .download { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 22px; border-radius: 16px; background: var(--ink); color: #fff; text-decoration: none; box-shadow: 0 16px 32px rgba(32,36,42,.18); }
+    section { border-top: 1px solid var(--line); padding: 32px 0; }
     h2 { font-size: 1.7rem; margin: 0 0 14px; }
     p, li { font-size: 1.08rem; }
+    .lead { max-width: 780px; color: var(--muted); font-weight: 650; }
     a { color: #087596; font-weight: 800; }
+    .details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+    .detail { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: rgba(255,255,255,.58); }
+    .detail h3 { margin: 0 0 8px; font-size: 1.12rem; }
+    .detail p { margin: 0; color: var(--muted); font-size: 1rem; }
+    .screen-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+    .screen { width: 100%; aspect-ratio: 600 / 1300; object-fit: cover; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 16px 34px rgba(32,36,42,.14); background: white; }
     nav { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px; }
+    @media (max-width: 680px) {
+      main { padding-inline: 16px; }
+      .hero { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .tagline { margin-inline: auto; }
+      .details { grid-template-columns: 1fr; }
+      .screen-grid { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+      .screen { flex: 0 0 72%; scroll-snap-align: center; }
+    }
   </style>
 </head>
 <body>
   <main>
     <div class="hero">
-      <h1>Puffy Pals AR</h1>
-      <p class="tagline">A cute augmented reality bubble slingshot game for iPhone and iPad.</p>
-      <span class="pill">AR camera play</span>
-      <span class="pill">Cute plush targets</span>
-      <span class="pill">No ads</span>
+      <img class="icon" src="ph-assets/puffy-appstore-icon-20260618.png" alt="Puffy Pals AR app icon">
+      <div>
+        <h1>Puffy Pals AR</h1>
+        <p class="tagline">Irresistibly cute pals to play with everywhere.</p>
+        <a class="download" href="https://apps.apple.com/us/app/puffy-pals-ar/id6779803386">Download on the App Store</a>
+      </div>
     </div>
 
     <section>
-      <h2>Pop playful pals in your own room</h2>
-      <p>Find mischievous flying critters in augmented reality, pull back the slingshot, follow the aiming arc, and launch colorful bubble shots. Clear five progression levels, then keep playing in an endless challenge.</p>
+      <h2>Cute bubble fun anywhere</h2>
+      <p class="lead">Puffy Pals AR turns your real space into a playful bubble slingshot game. Look around, find floating pals, aim with the slingshot, and pop them with soft bubble shots. It is built for quick, cheerful iPhone and iPad play.</p>
+      <span class="pill">Cute pals</span>
+      <span class="pill">Bubble shots</span>
+      <span class="pill">Quick AR play</span>
     </section>
 
     <section>
-      <h2>Designed for quick, cheerful play</h2>
+      <h2>How it plays</h2>
+      <div class="details">
+        <div class="detail">
+          <h3>Look around your space</h3>
+          <p>The pals appear in your real environment, so each round feels a little different depending on where you play.</p>
+        </div>
+        <div class="detail">
+          <h3>Follow the indicator</h3>
+          <p>Direction hints help you find pals when they drift outside the camera view, keeping the game moving.</p>
+        </div>
+        <div class="detail">
+          <h3>Aim the slingshot</h3>
+          <p>Pull back, watch the aiming arc, and line up a soft bubble shot before launching.</p>
+        </div>
+        <div class="detail">
+          <h3>Pop and keep going</h3>
+          <p>Clear playful stages, try different shot styles, and keep chasing cute bubble-pop moments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Screen Captures</h2>
+      <div class="screen-grid">
+        <img class="screen" src="ph-assets/puffy-screenshot-01-start.jpg" alt="Puffy Pals AR start screen in a room">
+        <img class="screen" src="ph-assets/puffy-screenshot-02-targets.jpg" alt="Puffy Pals AR floating pals target screen">
+        <img class="screen" src="ph-assets/puffy-screenshot-03-aim.jpg" alt="Puffy Pals AR slingshot aiming screen">
+      </div>
+    </section>
+
+    <section>
+      <h2>Designed for cheerful play</h2>
       <ul>
         <li>Works on iPhone and iPad with AR camera gameplay.</li>
+        <li>World-locked targets make the pals feel like they are in your space.</li>
+        <li>Direction and distance hints help you find off-screen pals.</li>
+        <li>Multiple handcrafted stages plus an endless challenge.</li>
         <li>Bubble, splash, freeze, and sparkle shot styles.</li>
         <li>Premium game with no ads, no subscriptions, and no in-app purchases.</li>
       </ul>
